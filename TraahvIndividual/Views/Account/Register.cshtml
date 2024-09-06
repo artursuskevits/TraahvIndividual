@@ -3,38 +3,40 @@
     ViewBag.Title = "Register";
 }
 
-<main aria-labelledby="title">
+<main aria-labelledby="title" style="color: white; background: rgba(97, 1, 1, 0.5); border-radius: 20px; padding:10px;">
     <h2 id="title">@ViewBag.Title.</h2>
 
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
     {
         @Html.AntiForgeryToken()
         <h4>Create a new account.</h4>
-        <hr />
+        <hr style="border:solid white 1px;"/>
         @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div>
         <div class="row">
             @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
+            <div class="col-md-10" style="margin:5px;">
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             </div>
         </div>
         <div class="row">
             @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
+            <div class="col-md-10" style="margin:5px;">
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
             </div>
         </div>
         <div class="row">
             @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
+            <div class="col-md-10" style="margin:5px;">
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
             </div>
         </div>
         <div class="row">
-            <div class="offset-md-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-outline-dark" />
+            <div class="offset-md-2 col-md-10" style="margin:5px;">
+                <input type="submit" value="Register" class="btn btn-outline-dark" style = "color: white; background-color: #ad0505; border: solid #ad0505 1px;"/>
             </div>
         </div>
+            </div>
     }
 </main>
 
