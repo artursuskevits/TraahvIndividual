@@ -32,7 +32,6 @@ namespace TraahvIndividual.Controllers
 
             return View();
         }
-
         public ActionResult Traahv()
         {
             IEnumerable<Traahv> traahvs = db.Traahv.ToList();
