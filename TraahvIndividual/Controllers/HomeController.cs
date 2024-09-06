@@ -44,6 +44,7 @@ namespace TraahvIndividual.Controllers
 
         public ActionResult CreateTraahv(Traahv trahv)
         {
+            trahv.CalculateFine(); 
             db.Traahv.Add(trahv);
             db.SaveChanges();
             return RedirectToAction("Traahv");
@@ -61,8 +62,9 @@ namespace TraahvIndividual.Controllers
             return View(g);
         }
         [HttpPost, ActionName("EditTraahv")]
-        public ActionResult EditTraavhConfirmed(Traahv guest)
+        public ActionResult EditTraahvConfirmed(Traahv guest)
         {
+            guest.CalculateFine(); 
             db.Entry(guest).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Traahv");

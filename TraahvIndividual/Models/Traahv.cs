@@ -1,11 +1,7 @@
-﻿using System;
-using System.Data.Entity;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Web.UI.WebControls;
+using System;
 
 namespace TraahvIndividual.Models
 {
@@ -22,5 +18,26 @@ namespace TraahvIndividual.Models
 
         public int TrahviSuurus { get; set; }
         public virtual ICollection<Login> Logins { get; set; }
+
+      
+        public void CalculateFine()
+        {
+            if (KiiruseUletamine <= 20)
+            {
+                TrahviSuurus = 50;
+            }
+            else if (KiiruseUletamine <= 40)
+            {
+                TrahviSuurus = 100;
+            }
+            else if (KiiruseUletamine <= 60)
+            {
+                TrahviSuurus = 200;
+            }
+            else
+            {
+                TrahviSuurus = 400;
+            }
+        }
     }
 }
