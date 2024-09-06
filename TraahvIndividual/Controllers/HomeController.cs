@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TraahvIndividual.Models;
+using System;
+using System.Net;
+using System.Net.Mail;
 
 namespace TraahvIndividual.Controllers
 {
@@ -47,6 +50,7 @@ namespace TraahvIndividual.Controllers
             trahv.CalculateFine(); 
             db.Traahv.Add(trahv);
             db.SaveChanges();
+            trahv.SendMessage();
             return RedirectToAction("Traahv");
         }
 
